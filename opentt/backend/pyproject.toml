@@ -1,0 +1,41 @@
+[project]
+name = "opentt-backend"
+version = "1.0.0"
+description = "OpenTT - Open-source Timetable Management System Backend"
+requires-python = ">=3.12"
+readme = "README.md"
+authors = [
+    {name = "OpenTT Contributors"}
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = [
+    "tests",
+]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
